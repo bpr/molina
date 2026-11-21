@@ -1,6 +1,5 @@
 """Smoke tests: the 1D Laplacian solved by CG and by sparse Cholesky, and
-a parallel loop covering its range (the full tests come over from MojoDEC
-next)."""
+a parallel loop covering its range."""
 
 from std.testing import (
     TestSuite,

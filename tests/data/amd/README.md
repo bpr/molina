@@ -3,14 +3,15 @@
 The `.perm` files are the permutations faer's `sparse::linalg::amd::order`
 (faer 0.24.4, commit `0ecd846`, default `Control`) gives for three
 matrices that `tests/test_sparse_ldlt.mojo`, `test_amd_matches_faer`,
-rebuilds:
+rebuilds (the first two from `d1_20x20` and `d0_14x14x14` in
+`../matrices`):
 
 - `grid2_1`: the 1-form Hodge stiffness plus mass on `kuhn_grid([20, 20])`;
 - `grid3big_0`: the 0-form one on `kuhn_grid([14, 14, 14])`, which makes
   AMD compress its workspace;
 - `random`: a random 400 x 400 pattern with a dense row and column.
 
-MojoDEC's `amd_ordering` builds the quotient graph in faer's order, so
+molina's `amd_ordering` builds the quotient graph in faer's order, so
 ties break the same way and the permutations agree entry for entry.
 
 To regenerate: write the pattern of `A + A^T` as `n nnz`, the column

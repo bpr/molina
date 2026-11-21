@@ -297,3 +297,13 @@ floating-point environment, so subnormals are not flushed.
 - `tests/data/amd/` holds faer's AMD permutations and `tests/data/amgcl/`
   amgcl's aggregates and prolongations, with the drivers that produced
   them; `amd_ordering` and `SmoothedAggregation` must equal them exactly.
+- The tests' matrices come from MojoDEC: `tests/data/matrices/*.csr`
+  (Whitney-form matrices on Kuhn grids, written by MojoDEC's
+  `tools/export_molina_fixtures.mojo`; format and names in the README
+  there), read by `matrix(name)` in `tests/fixtures.mojo`, which test
+  files import as `from fixtures import matrix`. Tests run from the
+  repository root, where the data paths resolve. To add one, add its
+  spec to the exporter and regenerate; don't hand-edit the files. The
+  amd and amgcl data were computed from these exact matrices.
+- `fixtures.uniform(rows, cols, seed)` gives reproducible random arrays
+  (no NuMojo here).
